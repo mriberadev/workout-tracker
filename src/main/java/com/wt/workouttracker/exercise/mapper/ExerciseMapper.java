@@ -1,7 +1,10 @@
 package com.wt.workouttracker.exercise.mapper;
 
+import com.wt.workouttracker.exercise.dto.ExerciseRequestDTO;
 import com.wt.workouttracker.exercise.dto.ExerciseResponseDTO;
 import com.wt.workouttracker.exercise.model.Exercise;
+
+import java.time.LocalDate;
 
 public class ExerciseMapper {
 	public static ExerciseResponseDTO toDTO(Exercise exercise) {
@@ -12,5 +15,15 @@ public class ExerciseMapper {
 		exerciseResponseDTO.setVideo(exercise.getVideo());
 
 		return exerciseResponseDTO;
+	}
+
+	public static Exercise toModel(ExerciseRequestDTO exerciseRequestDTO) {
+		Exercise exercise = new Exercise();
+		exercise.setName(exerciseRequestDTO.getName());
+		exercise.setImage(exerciseRequestDTO.getImage());
+		exercise.setVideo(exerciseRequestDTO.getVideo());
+		exercise.setCreation_date(LocalDate.parse(exerciseRequestDTO.getCreation_date()));
+
+		return exercise;
 	}
 }

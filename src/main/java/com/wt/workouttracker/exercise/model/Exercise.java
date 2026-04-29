@@ -51,6 +51,7 @@ public class Exercise {
 	}
 
 	public void setImage(String image) {
+		if (image != null && image.isEmpty()) image = null;
 		this.image = image;
 	}
 
@@ -59,6 +60,7 @@ public class Exercise {
 	}
 
 	public void setVideo(String video) {
+		if (video != null && video.isEmpty()) video = null;
 		this.video = video;
 	}
 
