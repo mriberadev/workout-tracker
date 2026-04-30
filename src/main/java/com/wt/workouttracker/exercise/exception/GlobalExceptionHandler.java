@@ -1,5 +1,7 @@
 package com.wt.workouttracker.exercise.exception;
 
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Path;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,23 @@ public class GlobalExceptionHandler {
 
 		e.getBindingResult().getFieldErrors().forEach(
 				error -> errors.put(error.getField(), error.getDefaultMessage()));
+
+		return ResponseEntity.badRequest().body(errors);
+	}
+
+	@ExceptionHandler(ConstraintViolationException.class)
+	public ResponseEntity<Map<String, String>> handleConstraintViolationException(ConstraintViolationException e) {
+		Map<String, String> errors = new HashMap<>();
+
+		e.getConstraintViolations().forEach(
+				error -> {
+					// Get param name from last element of path
+					String errorParamName = null;
+					for (Path.Node node : error.getPropertyPath()){
+						errorParamName = node.getName();
+					}
+					errors.put(errorParamName, error.getMessage());
+				});
 
 		return ResponseEntity.badRequest().body(errors);
 	}

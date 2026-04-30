@@ -5,15 +5,16 @@ import com.wt.workouttracker.exercise.dto.ExerciseResponseDTO;
 import com.wt.workouttracker.exercise.dto.validators.CreateExerciseValidationGroup;
 import com.wt.workouttracker.exercise.service.ExerciseService;
 import jakarta.validation.Valid;
-import org.hibernate.validator.constraints.UUID;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/exercises")
+@Validated
 public class ExerciseController {
 	private final ExerciseService exerciseService;
 
@@ -36,10 +37,14 @@ public class ExerciseController {
 
 	@PutMapping("/{id}")
 	public ResponseEntity<ExerciseResponseDTO> updateExercise(
-			@PathVariable String id,
+			@PathVariable
+			@org.hibernate.validator.constraints.UUID
+			String id,
 			@Valid @RequestBody ExerciseRequestDTO exerciseRequestDTO) {
 
-		ExerciseResponseDTO exerciseResponseDTO = exerciseService.updateExercise(id, exerciseRequestDTO);
+		UUID uuid = UUID.fromString(id);
+
+		ExerciseResponseDTO exerciseResponseDTO = exerciseService.updateExercise(uuid, exerciseRequestDTO);
 
 		return ResponseEntity.ok(exerciseResponseDTO);
 	}

@@ -3,7 +3,6 @@ package com.wt.workouttracker.exercise.service;
 import com.wt.workouttracker.exercise.dto.ExerciseRequestDTO;
 import com.wt.workouttracker.exercise.dto.ExerciseResponseDTO;
 import com.wt.workouttracker.exercise.exception.ExerciseNotFoundException;
-import com.wt.workouttracker.exercise.exception.InvalidIdException;
 import com.wt.workouttracker.exercise.mapper.ExerciseMapper;
 import com.wt.workouttracker.exercise.model.Exercise;
 import com.wt.workouttracker.exercise.repository.ExerciseRepository;
@@ -38,15 +37,9 @@ public class ExerciseService {
 		return ExerciseMapper.toDTO(newExercise);
 	}
 
-	public ExerciseResponseDTO updateExercise(String id, ExerciseRequestDTO exerciseRequestDTO) {
+	public ExerciseResponseDTO updateExercise(UUID id, ExerciseRequestDTO exerciseRequestDTO) {
 
-		UUID uuid;
-		try {
-			uuid = UUID.fromString(id);
-		} catch (IllegalArgumentException e) {
-			throw new InvalidIdException("ID format is not valid for ID:" + id);
-		}
-		Exercise exercise = exerciseRepository.findById(uuid).orElseThrow(
+		Exercise exercise = exerciseRepository.findById(id).orElseThrow(
 				() -> new ExerciseNotFoundException("Exercise not found for ID: " + id));
 
 		exercise.setName(exerciseRequestDTO.getName());
