@@ -30,6 +30,13 @@ public class ExerciseService {
 		return exerciseResponseDTOS;
 	}
 
+	public ExerciseResponseDTO getExerciseById(UUID id) {
+		Exercise exercise = exerciseRepository.findById(id).orElseThrow(
+				() -> new ExerciseNotFoundException("Exercise not found for ID: " + id));
+
+		return ExerciseMapper.toDTO(exercise);
+	}
+
 	public ExerciseResponseDTO createExercise(ExerciseRequestDTO exerciseRequestDTO) {
 		Exercise newExercise = exerciseRepository.save(
 				ExerciseMapper.toModel(exerciseRequestDTO));
@@ -48,5 +55,13 @@ public class ExerciseService {
 
 		Exercise updatedExercise = exerciseRepository.save(exercise);
 		return ExerciseMapper.toDTO(updatedExercise);
+	}
+
+	public void deleteExercise(UUID id) {
+
+		if (!exerciseRepository.existsById(id)) {
+			throw new ExerciseNotFoundException("Exercise not found for ID: " + id);
+		}
+		exerciseRepository.deleteById(id);
 	}
 }

@@ -28,6 +28,17 @@ public class ExerciseController {
 		return ResponseEntity.ok(exerciseResponseDTOS);
 	}
 
+	@GetMapping("/{id}")
+	public ResponseEntity<ExerciseResponseDTO> getExerciseById(
+			@PathVariable
+			@org.hibernate.validator.constraints.UUID
+			String id) {
+
+		UUID uuid = UUID.fromString(id);
+		ExerciseResponseDTO exerciseResponseDTO = exerciseService.getExerciseById(uuid);
+		return ResponseEntity.ok(exerciseResponseDTO);
+	}
+
 	@PostMapping
 	public ResponseEntity<ExerciseResponseDTO> createExercise(
 			@Validated({CreateExerciseValidationGroup.class}) @RequestBody ExerciseRequestDTO exerciseRequestDTO) {
@@ -47,5 +58,16 @@ public class ExerciseController {
 		ExerciseResponseDTO exerciseResponseDTO = exerciseService.updateExercise(uuid, exerciseRequestDTO);
 
 		return ResponseEntity.ok(exerciseResponseDTO);
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> deleteExercise(
+			@PathVariable
+			@org.hibernate.validator.constraints.UUID
+			String id) {
+
+		UUID uuid = UUID.fromString(id);
+		exerciseService.deleteExercise(uuid);
+		return ResponseEntity.ok().build();
 	}
 }

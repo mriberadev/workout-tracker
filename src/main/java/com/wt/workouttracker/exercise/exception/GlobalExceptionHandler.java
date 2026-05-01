@@ -4,6 +4,7 @@ import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Path;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -45,17 +46,6 @@ public class GlobalExceptionHandler {
 		return ResponseEntity.badRequest().body(errors);
 	}
 
-	@ExceptionHandler(InvalidIdException.class)
-	public ResponseEntity<Map<String, String>> handleInvalidIdException(InvalidIdException e) {
-
-		Map<String, String> errors = new HashMap<>();
-
-		log.warn("Invalid ID recieved {}", e.getMessage());
-		errors.put("message", "id must have UUID format");
-
-		return ResponseEntity.badRequest().body(errors);
-	}
-
 	@ExceptionHandler(ExerciseNotFoundException.class)
 	public ResponseEntity<Map<String, String>> handleExerciseNotFoundException(ExerciseNotFoundException e) {
 
@@ -64,6 +54,6 @@ public class GlobalExceptionHandler {
 		log.warn("Exercise not found {}", e.getMessage());
 		errors.put("message", "exercise not found");
 
-		return ResponseEntity.badRequest().body(errors);
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errors);
 	}
 }
