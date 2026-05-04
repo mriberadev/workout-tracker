@@ -22,7 +22,6 @@ public class ExerciseMapper {
 		exercise.setName(exerciseRequestDTO.getName());
 		exercise.setImage(exerciseRequestDTO.getImage());
 		exercise.setVideo(exerciseRequestDTO.getVideo());
-		exercise.setCreation_date(LocalDate.parse(exerciseRequestDTO.getCreation_date()));
 
 		return exercise;
 	}
