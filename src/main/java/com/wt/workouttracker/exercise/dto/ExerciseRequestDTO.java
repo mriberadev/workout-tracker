@@ -17,9 +17,6 @@ public class ExerciseRequestDTO {
 	@URL
 	private String video;
 
-	@NotBlank(groups = CreateExerciseValidationGroup.class)
-	private String creation_date;
-
 	public String getName() {
 		return name;
 	}
@@ -42,13 +39,5 @@ public class ExerciseRequestDTO {
 
 	public void setVideo(String video) {
 		this.video = video;
-	}
-
-	public String getCreation_date() {
-		return creation_date;
-	}
-
-	public void setCreation_date(String creation_date) {
-		this.creation_date = creation_date;
 	}
 }

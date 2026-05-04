@@ -1,13 +1,10 @@
 package com.wt.workouttracker.exercise.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.URL;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -27,8 +24,13 @@ public class Exercise {
 	private String video;
 
 	@NotNull
-	private LocalDate creation_date;
+	private LocalDateTime creation_date;
 
+	// creation_date gets set only on first insert
+	@PrePersist
+	private void onCreate() {
+		this.setCreation_date(LocalDateTime.now());
+	}
 
 	public UUID getId() {
 		return id;
@@ -64,11 +66,11 @@ public class Exercise {
 		this.video = video;
 	}
 
-	public LocalDate getCreation_date() {
+	public LocalDateTime getCreation_date() {
 		return creation_date;
 	}
 
-	public void setCreation_date(LocalDate creation_date) {
+	public void setCreation_date(LocalDateTime creation_date) {
 		this.creation_date = creation_date;
 	}
 }
