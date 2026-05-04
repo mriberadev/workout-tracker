@@ -41,7 +41,7 @@ public class ExerciseController {
 
 	@PostMapping
 	public ResponseEntity<ExerciseResponseDTO> createExercise(
-			@Validated({CreateExerciseValidationGroup.class}) @RequestBody ExerciseRequestDTO exerciseRequestDTO) {
+			@Valid @RequestBody ExerciseRequestDTO exerciseRequestDTO) {
 		ExerciseResponseDTO exerciseResponseDTO = exerciseService.createExercise(exerciseRequestDTO);
 		return ResponseEntity.ok(exerciseResponseDTO);
 	}

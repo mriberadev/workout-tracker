@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.URL;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
 @Entity
@@ -26,10 +27,20 @@ public class Exercise {
 	@NotNull
 	private LocalDateTime creation_date;
 
+	@NotNull
+	private LocalDateTime last_modification_date;
+
 	// creation_date gets set only on first insert
 	@PrePersist
-	private void onCreate() {
-		this.setCreation_date(LocalDateTime.now());
+	final void onCreate() {
+		this.setCreation_date(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
+		this.setLast_modification_date(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
+	}
+
+	// last_modification_date gets set every update
+	@PreUpdate
+	final void onUpdate() {
+		this.setLast_modification_date(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
 	}
 
 	public UUID getId() {
@@ -72,5 +83,13 @@ public class Exercise {
 
 	public void setCreation_date(LocalDateTime creation_date) {
 		this.creation_date = creation_date;
+	}
+
+	public LocalDateTime getLast_modification_date() {
+		return last_modification_date;
+	}
+
+	public void setLast_modification_date(LocalDateTime last_modification_date) {
+		this.last_modification_date = last_modification_date;
 	}
 }
