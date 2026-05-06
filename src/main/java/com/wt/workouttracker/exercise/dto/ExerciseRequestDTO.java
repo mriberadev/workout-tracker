@@ -1,6 +1,5 @@
 package com.wt.workouttracker.exercise.dto;
 
-import com.wt.workouttracker.exercise.dto.validators.CreateExerciseValidationGroup;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.URL;

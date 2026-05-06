@@ -1,16 +1,15 @@
-package com.wt.workouttracker.exercise.model;
+package com.wt.workouttracker.workout.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.URL;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
 @Entity
-public class Exercise {
+public class Workout {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,12 +17,6 @@ public class Exercise {
 
 	@NotEmpty
 	private String name;
-
-	@URL
-	private String image;
-
-	@URL
-	private String video;
 
 	@NotNull
 	private LocalDateTime creation_date;
@@ -58,24 +51,6 @@ public class Exercise {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		if (image != null && image.isEmpty()) image = null;
-		this.image = image;
-	}
-
-	public String getVideo() {
-		return video;
-	}
-
-	public void setVideo(String video) {
-		if (video != null && video.isEmpty()) video = null;
-		this.video = video;
 	}
 
 	public LocalDateTime getCreation_date() {
