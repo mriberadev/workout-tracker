@@ -6,7 +6,7 @@ public class ExerciseResponseDTO {
 	private String name;
 	private String image;
 	private String video;
-	private String last_modification_date;
+	private String lastModificationDate;
 
 	public String getId() {
 		return id;
@@ -40,11 +40,11 @@ public class ExerciseResponseDTO {
 		this.video = video;
 	}
 
-	public String getLast_modification_date() {
-		return last_modification_date;
+	public String getLastModificationDate() {
+		return lastModificationDate;
 	}
 
-	public void setLast_modification_date(String last_modification_date) {
-		this.last_modification_date = last_modification_date;
+	public void setLastModificationDate(String lastModificationDate) {
+		this.lastModificationDate = lastModificationDate;
 	}
 }

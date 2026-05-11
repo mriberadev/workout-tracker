@@ -13,7 +13,7 @@ public class ExerciseMapper {
 		exerciseResponseDTO.setName(exercise.getName());
 		exerciseResponseDTO.setImage(exercise.getImage());
 		exerciseResponseDTO.setVideo(exercise.getVideo());
-		exerciseResponseDTO.setLast_modification_date(exercise.getLast_modification_date().toString());
+		exerciseResponseDTO.setLastModificationDate(exercise.getLastModificationDate().toString());
 
 		return exerciseResponseDTO;
 	}

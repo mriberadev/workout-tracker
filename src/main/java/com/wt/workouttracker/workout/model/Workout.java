@@ -1,15 +1,16 @@
 package com.wt.workouttracker.workout.model;
 
+import com.wt.workouttracker.common.model.BaseModel;
+import com.wt.workouttracker.workoutexercise.model.WorkoutExercise;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
-public class Workout {
+public class Workout extends BaseModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,24 +19,8 @@ public class Workout {
 	@NotEmpty
 	private String name;
 
-	@NotNull
-	private LocalDateTime creation_date;
-
-	@NotNull
-	private LocalDateTime last_modification_date;
-
-	// creation_date gets set only on first insert
-	@PrePersist
-	final void onCreate() {
-		this.setCreation_date(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
-		this.setLast_modification_date(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
-	}
-
-	// last_modification_date gets set every update
-	@PreUpdate
-	final void onUpdate() {
-		this.setLast_modification_date(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
-	}
+	@OneToMany(mappedBy = "workout", cascade = {CascadeType.REMOVE})
+	private List<WorkoutExercise> workoutExerciseList = new ArrayList<>();
 
 	public UUID getId() {
 		return id;
@@ -53,19 +38,11 @@ public class Workout {
 		this.name = name;
 	}
 
-	public LocalDateTime getCreation_date() {
-		return creation_date;
+	public List<WorkoutExercise> getWorkoutExerciseList() {
+		return workoutExerciseList;
 	}
 
-	public void setCreation_date(LocalDateTime creation_date) {
-		this.creation_date = creation_date;
-	}
-
-	public LocalDateTime getLast_modification_date() {
-		return last_modification_date;
-	}
-
-	public void setLast_modification_date(LocalDateTime last_modification_date) {
-		this.last_modification_date = last_modification_date;
+	public void setWorkoutExerciseList(List<WorkoutExercise> workoutExerciseList) {
+		this.workoutExerciseList = workoutExerciseList;
 	}
 }

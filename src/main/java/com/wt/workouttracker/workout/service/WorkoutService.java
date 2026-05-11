@@ -37,6 +37,11 @@ public class WorkoutService {
 		return WorkoutMapper.toDTO(workout);
 	}
 
+	public Workout getWorkoutObjectById(UUID id) {
+		return workoutRepository.findById(id).orElseThrow(
+				() -> new WorkoutNotFoundException("Workout not found for ID: " + id));
+	}
+
 	public WorkoutResponseDTO createWorkout(WorkoutRequestDTO workoutRequestDTO) {
 		Workout newWorkout = workoutRepository.save(
 				WorkoutMapper.toModel(workoutRequestDTO));

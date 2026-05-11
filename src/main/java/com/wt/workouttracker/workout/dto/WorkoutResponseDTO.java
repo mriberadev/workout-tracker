@@ -3,7 +3,7 @@ package com.wt.workouttracker.workout.dto;
 public class WorkoutResponseDTO {
 	private String id;
 	private String name;
-	private String last_modification_date;
+	private String lastModificationDate;
 
 	public String getId() {
 		return id;
@@ -21,11 +21,11 @@ public class WorkoutResponseDTO {
 		this.name = name;
 	}
 
-	public String getLast_modification_date() {
-		return last_modification_date;
+	public String getLastModificationDate() {
+		return lastModificationDate;
 	}
 
-	public void setLast_modification_date(String last_modification_date) {
-		this.last_modification_date = last_modification_date;
+	public void setLastModificationDate(String lastModificationDate) {
+		this.lastModificationDate = lastModificationDate;
 	}
 }

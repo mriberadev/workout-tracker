@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.HashMap;
 import java.util.Map;
 
-@ControllerAdvice(basePackages = "com.wt.workouttracker.workout")
+@ControllerAdvice(basePackages = {"com.wt.workouttracker.workout", "com.wt.workouttracker.workoutexercise"})
 public class WorkoutExceptionHandler {
 
 	@ExceptionHandler(WorkoutNotFoundException.class)

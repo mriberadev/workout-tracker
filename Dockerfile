@@ -2,7 +2,7 @@ FROM gradle:jdk26-alpine AS builder
 WORKDIR /app
 COPY build.gradle settings.gradle ./
 COPY src ./src
-RUN gradle build
+RUN gradle clean build
 
 
 FROM eclipse-temurin:26-alpine AS runner

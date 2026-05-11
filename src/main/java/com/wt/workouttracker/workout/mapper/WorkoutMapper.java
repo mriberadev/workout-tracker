@@ -12,7 +12,7 @@ public class WorkoutMapper {
 
 		workoutResponseDTO.setId(workout.getId().toString());
 		workoutResponseDTO.setName(workout.getName());
-		workoutResponseDTO.setLast_modification_date(workout.getLast_modification_date().toString());
+		workoutResponseDTO.setLastModificationDate(workout.getLastModificationDate().toString());
 
 		return workoutResponseDTO;
 	}

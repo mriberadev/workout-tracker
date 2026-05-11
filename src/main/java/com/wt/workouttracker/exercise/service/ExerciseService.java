@@ -37,6 +37,11 @@ public class ExerciseService {
 		return ExerciseMapper.toDTO(exercise);
 	}
 
+	public Exercise getExerciseObjectById(UUID id) {
+		return exerciseRepository.findById(id).orElseThrow(
+				() -> new ExerciseNotFoundException("Exercise not found for ID: " + id));
+	}
+
 	public ExerciseResponseDTO createExercise(ExerciseRequestDTO exerciseRequestDTO) {
 		Exercise newExercise = exerciseRepository.save(
 				ExerciseMapper.toModel(exerciseRequestDTO));
