@@ -16,6 +16,9 @@ public class ExerciseRequestDTO {
 	@URL
 	private String video;
 
+	@Size(max = 5000)
+	private String notes;
+
 	public String getName() {
 		return name;
 	}
@@ -38,5 +41,13 @@ public class ExerciseRequestDTO {
 
 	public void setVideo(String video) {
 		this.video = video;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 }

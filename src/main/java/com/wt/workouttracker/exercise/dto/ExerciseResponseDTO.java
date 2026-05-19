@@ -6,6 +6,7 @@ public class ExerciseResponseDTO {
 	private String name;
 	private String image;
 	private String video;
+	private String notes;
 	private String lastModificationDate;
 
 	public String getId() {
@@ -38,6 +39,14 @@ public class ExerciseResponseDTO {
 
 	public void setVideo(String video) {
 		this.video = video;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 
 	public String getLastModificationDate() {

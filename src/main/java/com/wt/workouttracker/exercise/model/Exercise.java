@@ -4,7 +4,6 @@ import com.wt.workouttracker.common.model.BaseModel;
 import com.wt.workouttracker.workoutexercise.model.WorkoutExercise;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import org.hibernate.validator.constraints.URL;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +19,11 @@ public class Exercise extends BaseModel {
 	@NotEmpty
 	private String name;
 
-	@URL
 	private String image;
 
-	@URL
 	private String video;
+
+	private String notes;
 
 	@OneToMany(mappedBy = "exercise", cascade = {CascadeType.REMOVE})
 	private List<WorkoutExercise> workoutExerciseList = new ArrayList<>();
@@ -61,6 +60,14 @@ public class Exercise extends BaseModel {
 	public void setVideo(String video) {
 		if (video != null && video.isEmpty()) video = null;
 		this.video = video;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 
 	public List<WorkoutExercise> getWorkoutExerciseList() {
