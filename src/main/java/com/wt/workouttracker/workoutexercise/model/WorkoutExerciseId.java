@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 @Embeddable
@@ -21,6 +22,18 @@ public class WorkoutExerciseId implements Serializable {
 	public WorkoutExerciseId(UUID workoutId, UUID exerciseId) {
 		this.workoutId = workoutId;
 		this.exerciseId = exerciseId;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o == null || getClass() != o.getClass()) return false;
+		WorkoutExerciseId that = (WorkoutExerciseId) o;
+		return Objects.equals(workoutId, that.workoutId) && Objects.equals(exerciseId, that.exerciseId);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(workoutId, exerciseId);
 	}
 
 	public UUID getWorkoutId() {
