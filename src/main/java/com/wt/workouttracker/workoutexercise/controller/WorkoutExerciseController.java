@@ -73,6 +73,8 @@ public class WorkoutExerciseController {
 	@Operation(summary = "Create new workout exercise")
 	@ApiResponse(responseCode = "400", description = "One or more request parameters are invalid",
 			content = @Content(examples = @ExampleObject(value = "{\"parameter\": \"error message\"}")))
+	@ApiResponse(responseCode = "404", description = "Workout or exercise not found",
+			content = @Content(schema = @Schema(hidden = true)))
 	public ResponseEntity<WorkoutExerciseResponseDTO> createWorkoutExercise(
 			@Valid @RequestBody WorkoutExerciseRequestDTO workoutExerciseRequestDTO) {
 		WorkoutExerciseResponseDTO workoutExerciseResponseDTO = workoutExerciseService.createWorkoutExercise(workoutExerciseRequestDTO);
