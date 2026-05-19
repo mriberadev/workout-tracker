@@ -1,6 +1,7 @@
 package com.wt.workouttracker.workout.model;
 
 import com.wt.workouttracker.common.model.BaseModel;
+import com.wt.workouttracker.workoutdate.model.WorkoutDate;
 import com.wt.workouttracker.workoutexercise.model.WorkoutExercise;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
@@ -21,6 +22,9 @@ public class Workout extends BaseModel {
 
 	@OneToMany(mappedBy = "workout", cascade = {CascadeType.REMOVE})
 	private List<WorkoutExercise> workoutExerciseList = new ArrayList<>();
+
+	@OneToMany(mappedBy = "workout", cascade = {CascadeType.REMOVE})
+	private List<WorkoutDate> workoutDateList = new ArrayList<>();
 
 	public UUID getId() {
 		return id;
