@@ -9,6 +9,7 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import tools.jackson.databind.exc.InvalidFormatException;
 
 import java.time.format.DateTimeParseException;
 import java.util.HashMap;
@@ -55,8 +56,17 @@ public class GlobalExceptionHandler {
 
 		switch(e.getRootCause()) {
 			case DateTimeParseException dateTimeParseException -> {
+				String fieldName = e.getCause() instanceof InvalidFormatException ?
+						((InvalidFormatException) e.getCause()).getPath().getLast().getPropertyName()
+						: "unknown";
 				errors.put("message", "Value '" + dateTimeParseException.getParsedString()
-						+ "' is not a valid date (YYYY-MM-DD) or time (hh:mm:ss) format ");
+						+ "' in field '" + fieldName
+						+ "' is not a valid date (YYYY-MM-DD) or time (HH:MM:SS) format ");
+			}
+			case InvalidFormatException invalidFormatException -> {
+				errors.put("message", "Field '" + invalidFormatException.getPath().getLast().getPropertyName()
+						+ "' expected type '" + invalidFormatException.getTargetType().getSimpleName()
+						+ "' and received value '" + invalidFormatException.getValue() + "'.");
 			}
 			case null, default -> {
 				errors.put("message", "Unknown parsing error");
