@@ -1,12 +1,9 @@
-package com.wt.workouttracker.workoutdate.service;
+package com.wt.workouttracker.workoutdate;
 
-import com.wt.workouttracker.workout.service.WorkoutService;
+import com.wt.workouttracker.workout.WorkoutService;
 import com.wt.workouttracker.workoutdate.dto.WorkoutDateRequestDTO;
 import com.wt.workouttracker.workoutdate.dto.WorkoutDateResponseDTO;
 import com.wt.workouttracker.workoutdate.exception.WorkoutDateNotFoundException;
-import com.wt.workouttracker.workoutdate.mapper.WorkoutDateMapper;
-import com.wt.workouttracker.workoutdate.model.WorkoutDate;
-import com.wt.workouttracker.workoutdate.repository.WorkoutDateRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,10 +1,7 @@
-package com.wt.workouttracker.exercise.mapper;
+package com.wt.workouttracker.exercise;
 
 import com.wt.workouttracker.exercise.dto.ExerciseRequestDTO;
 import com.wt.workouttracker.exercise.dto.ExerciseResponseDTO;
-import com.wt.workouttracker.exercise.model.Exercise;
-
-import java.time.LocalDate;
 
 public class ExerciseMapper {
 	public static ExerciseResponseDTO toDTO(Exercise exercise) {

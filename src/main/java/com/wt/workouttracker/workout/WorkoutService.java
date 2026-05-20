@@ -1,11 +1,8 @@
-package com.wt.workouttracker.workout.service;
+package com.wt.workouttracker.workout;
 
 import com.wt.workouttracker.workout.dto.WorkoutRequestDTO;
 import com.wt.workouttracker.workout.dto.WorkoutResponseDTO;
 import com.wt.workouttracker.workout.exception.WorkoutNotFoundException;
-import com.wt.workouttracker.workout.mapper.WorkoutMapper;
-import com.wt.workouttracker.workout.model.Workout;
-import com.wt.workouttracker.workout.repository.WorkoutRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

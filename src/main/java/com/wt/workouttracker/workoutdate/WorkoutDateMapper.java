@@ -1,8 +1,7 @@
-package com.wt.workouttracker.workoutdate.mapper;
+package com.wt.workouttracker.workoutdate;
 
 import com.wt.workouttracker.workoutdate.dto.WorkoutDateRequestDTO;
 import com.wt.workouttracker.workoutdate.dto.WorkoutDateResponseDTO;
-import com.wt.workouttracker.workoutdate.model.WorkoutDate;
 
 public class WorkoutDateMapper {
 

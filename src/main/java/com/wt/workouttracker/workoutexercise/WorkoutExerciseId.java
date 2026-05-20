@@ -1,4 +1,4 @@
-package com.wt.workouttracker.workoutexercise.model;
+package com.wt.workouttracker.workoutexercise;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

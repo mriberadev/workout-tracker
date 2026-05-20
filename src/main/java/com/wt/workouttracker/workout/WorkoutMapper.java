@@ -1,8 +1,7 @@
-package com.wt.workouttracker.workout.mapper;
+package com.wt.workouttracker.workout;
 
 import com.wt.workouttracker.workout.dto.WorkoutRequestDTO;
 import com.wt.workouttracker.workout.dto.WorkoutResponseDTO;
-import com.wt.workouttracker.workout.model.Workout;
 
 public class WorkoutMapper {
 

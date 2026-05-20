@@ -1,6 +1,5 @@
-package com.wt.workouttracker.exercise.repository;
+package com.wt.workouttracker.exercise;
 
-import com.wt.workouttracker.exercise.model.Exercise;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

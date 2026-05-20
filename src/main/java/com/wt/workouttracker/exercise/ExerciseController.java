@@ -1,8 +1,7 @@
-package com.wt.workouttracker.exercise.controller;
+package com.wt.workouttracker.exercise;
 
 import com.wt.workouttracker.exercise.dto.ExerciseRequestDTO;
 import com.wt.workouttracker.exercise.dto.ExerciseResponseDTO;
-import com.wt.workouttracker.exercise.service.ExerciseService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.ArraySchema;

@@ -1,9 +1,8 @@
-package com.wt.workouttracker.workoutdate.controller;
+package com.wt.workouttracker.workoutdate;
 
 import com.wt.workouttracker.workoutdate.dto.WorkoutDateRequestDTO;
 import com.wt.workouttracker.workoutdate.dto.WorkoutDateResponseDTO;
 import com.wt.workouttracker.workoutdate.dto.validation.CreateWorkoutDateValidationGroup;
-import com.wt.workouttracker.workoutdate.service.WorkoutDateService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -19,7 +18,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 

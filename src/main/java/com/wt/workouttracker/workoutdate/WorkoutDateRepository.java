@@ -1,6 +1,5 @@
-package com.wt.workouttracker.workoutdate.repository;
+package com.wt.workouttracker.workoutdate;
 
-import com.wt.workouttracker.workoutdate.model.WorkoutDate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,8 +1,8 @@
-package com.wt.workouttracker.workout.model;
+package com.wt.workouttracker.workout;
 
-import com.wt.workouttracker.common.model.BaseModel;
-import com.wt.workouttracker.workoutdate.model.WorkoutDate;
-import com.wt.workouttracker.workoutexercise.model.WorkoutExercise;
+import com.wt.workouttracker.common.BaseModel;
+import com.wt.workouttracker.workoutdate.WorkoutDate;
+import com.wt.workouttracker.workoutexercise.WorkoutExercise;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 

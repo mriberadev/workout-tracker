@@ -1,4 +1,4 @@
-package com.wt.workouttracker.common.model;
+package com.wt.workouttracker.common;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
