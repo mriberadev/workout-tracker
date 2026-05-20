@@ -4,8 +4,8 @@ public class WorkoutDateResponseDTO {
 
 	private String id;
 	private String workoutId;
-	private String date;
-	private String time;
+	private String scheduledDate;
+	private String scheduledTime;
 	private String lastModificationDate;
 
 	public String getId() {
@@ -24,20 +24,20 @@ public class WorkoutDateResponseDTO {
 		this.workoutId = workoutId;
 	}
 
-	public String getDate() {
-		return date;
+	public String getScheduledDate() {
+		return scheduledDate;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setScheduledDate(String scheduledDate) {
+		this.scheduledDate = scheduledDate;
 	}
 
-	public String getTime() {
-		return time;
+	public String getScheduledTime() {
+		return scheduledTime;
 	}
 
-	public void setTime(String time) {
-		this.time = time;
+	public void setScheduledTime(String scheduledTime) {
+		this.scheduledTime = scheduledTime;
 	}
 
 	public String getLastModificationDate() {

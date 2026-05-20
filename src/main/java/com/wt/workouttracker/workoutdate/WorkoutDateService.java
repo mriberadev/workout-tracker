@@ -53,8 +53,8 @@ public class WorkoutDateService {
 		WorkoutDate workoutDate = workoutDateRepository.findById(id).orElseThrow(
 				() -> new WorkoutDateNotFoundException("Workout date not found for ID: " + id));
 
-		workoutDate.setDate(workoutDateRequestDTO.getDate());
-		workoutDate.setTime(workoutDateRequestDTO.getTime());
+		workoutDate.setScheduledDate(workoutDateRequestDTO.getScheduledDate());
+		workoutDate.setScheduledTime(workoutDateRequestDTO.getScheduledTime());
 
 		WorkoutDate updatedWorkoutDate = workoutDateRepository.save(workoutDate);
 

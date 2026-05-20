@@ -22,12 +22,12 @@ public class WorkoutDate extends BaseModel {
 	private Workout workout;
 
 	@NotNull
-	@Column(name = "workout_date")
-	private LocalDate date;
+	@Column(name = "scheduled_date")
+	private LocalDate scheduledDate;
 
 	@NotNull
-	@Column(name = "workout_time")
-	private LocalTime time;
+	@Column(name = "scheduled_time")
+	private LocalTime scheduledTime;
 
 	public UUID getId() {
 		return id;
@@ -45,19 +45,19 @@ public class WorkoutDate extends BaseModel {
 		this.workout = workout;
 	}
 
-	public LocalDate getDate() {
-		return date;
+	public LocalDate getScheduledDate() {
+		return scheduledDate;
 	}
 
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public void setScheduledDate(LocalDate date) {
+		this.scheduledDate = date;
 	}
 
-	public LocalTime getTime() {
-		return time;
+	public LocalTime getScheduledTime() {
+		return scheduledTime;
 	}
 
-	public void setTime(LocalTime time) {
-		this.time = time;
+	public void setScheduledTime(LocalTime time) {
+		this.scheduledTime = time;
 	}
 }

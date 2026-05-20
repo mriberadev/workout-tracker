@@ -16,12 +16,12 @@ public class WorkoutDateRequestDTO {
 
 	@NotNull
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	private LocalDate date;
+	private LocalDate scheduledDate;
 
 	@NotNull
 	@DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
 	@Schema(example = "10:43:12")
-	private LocalTime time;
+	private LocalTime scheduledTime;
 
 	public UUID getWorkoutId() {
 		return workoutId;
@@ -31,19 +31,19 @@ public class WorkoutDateRequestDTO {
 		this.workoutId = workoutId;
 	}
 
-	public LocalDate getDate() {
-		return date;
+	public LocalDate getScheduledDate() {
+		return scheduledDate;
 	}
 
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public void setScheduledDate(LocalDate scheduledDate) {
+		this.scheduledDate = scheduledDate;
 	}
 
-	public LocalTime getTime() {
-		return time;
+	public LocalTime getScheduledTime() {
+		return scheduledTime;
 	}
 
-	public void setTime(LocalTime time) {
-		this.time = time;
+	public void setScheduledTime(LocalTime scheduledTime) {
+		this.scheduledTime = scheduledTime;
 	}
 }

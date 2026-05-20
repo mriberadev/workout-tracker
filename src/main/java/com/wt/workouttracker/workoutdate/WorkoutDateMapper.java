@@ -10,8 +10,8 @@ public class WorkoutDateMapper {
 
 		workoutDateResponseDTO.setId(workoutDate.getId().toString());
 		workoutDateResponseDTO.setWorkoutId(workoutDate.getWorkout().getId().toString());
-		workoutDateResponseDTO.setDate(workoutDate.getDate().toString());
-		workoutDateResponseDTO.setTime(workoutDate.getTime().toString());
+		workoutDateResponseDTO.setScheduledDate(workoutDate.getScheduledDate().toString());
+		workoutDateResponseDTO.setScheduledTime(workoutDate.getScheduledTime().toString());
 		workoutDateResponseDTO.setLastModificationDate(workoutDate.getLastModificationDate().toString());
 
 		return workoutDateResponseDTO;
@@ -20,8 +20,8 @@ public class WorkoutDateMapper {
 	public static WorkoutDate toModel(WorkoutDateRequestDTO workoutDateRequestDTO) {
 		WorkoutDate workoutDate = new WorkoutDate();
 
-		workoutDate.setDate(workoutDateRequestDTO.getDate());
-		workoutDate.setTime(workoutDateRequestDTO.getTime());
+		workoutDate.setScheduledDate(workoutDateRequestDTO.getScheduledDate());
+		workoutDate.setScheduledTime(workoutDateRequestDTO.getScheduledTime());
 
 		return workoutDate;
 	}
