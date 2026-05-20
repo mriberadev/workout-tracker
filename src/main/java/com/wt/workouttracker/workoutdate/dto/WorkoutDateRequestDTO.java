@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.UUID;
 
@@ -22,6 +23,15 @@ public class WorkoutDateRequestDTO {
 	@DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
 	@Schema(example = "10:43:12")
 	private LocalTime scheduledTime;
+
+	@NotNull
+	private boolean completed = false;
+
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+	private LocalDateTime startedAt;
+
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+	private LocalDateTime endedAt;
 
 	public UUID getWorkoutId() {
 		return workoutId;
@@ -45,5 +55,29 @@ public class WorkoutDateRequestDTO {
 
 	public void setScheduledTime(LocalTime scheduledTime) {
 		this.scheduledTime = scheduledTime;
+	}
+
+	public boolean isCompleted() {
+		return completed;
+	}
+
+	public void setCompleted(boolean completed) {
+		this.completed = completed;
+	}
+
+	public LocalDateTime getStartedAt() {
+		return startedAt;
+	}
+
+	public void setStartedAt(LocalDateTime startedAt) {
+		this.startedAt = startedAt;
+	}
+
+	public LocalDateTime getEndedAt() {
+		return endedAt;
+	}
+
+	public void setEndedAt(LocalDateTime endedAt) {
+		this.endedAt = endedAt;
 	}
 }

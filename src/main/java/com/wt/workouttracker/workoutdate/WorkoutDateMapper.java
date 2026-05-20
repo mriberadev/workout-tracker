@@ -12,6 +12,9 @@ public class WorkoutDateMapper {
 		workoutDateResponseDTO.setWorkoutId(workoutDate.getWorkout().getId().toString());
 		workoutDateResponseDTO.setScheduledDate(workoutDate.getScheduledDate().toString());
 		workoutDateResponseDTO.setScheduledTime(workoutDate.getScheduledTime().toString());
+		workoutDateResponseDTO.setCompleted(workoutDate.isCompleted());
+		workoutDateResponseDTO.setStartedAt(workoutDate.getStartedAt() != null ? workoutDate.getStartedAt().toString() : null);
+		workoutDateResponseDTO.setEndedAt(workoutDate.getEndedAt() != null ? workoutDate.getEndedAt().toString() : null);
 		workoutDateResponseDTO.setLastModificationDate(workoutDate.getLastModificationDate().toString());
 
 		return workoutDateResponseDTO;
@@ -22,6 +25,9 @@ public class WorkoutDateMapper {
 
 		workoutDate.setScheduledDate(workoutDateRequestDTO.getScheduledDate());
 		workoutDate.setScheduledTime(workoutDateRequestDTO.getScheduledTime());
+		workoutDate.setCompleted(workoutDateRequestDTO.isCompleted());
+		workoutDate.setStartedAt(workoutDateRequestDTO.getStartedAt());
+		workoutDate.setEndedAt(workoutDateRequestDTO.getEndedAt());
 
 		return workoutDate;
 	}
